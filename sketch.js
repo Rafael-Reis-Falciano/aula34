@@ -32,13 +32,15 @@ function setup() {
 
 	solo = Bodies.rectangle(400, 695, 800, 10, static_options);
 
-	bloco = Bodies.rectangle(200, 680, 35, 35, options);
+	bloco = Bodies.rectangle(200, 300, 35, 35, options);
 
 	parede1 = Bodies.rectangle(650, 680, 10, 100, static_options);
 	parede2 = Bodies.rectangle(760, 680, 10, 100, static_options);
 
 	World.add(world, bloco);
 	World.add(world, solo);
+	World.add(world, parede1);
+	World.add(world, parede2);
 
 	Engine.run(engine);
   
@@ -62,14 +64,14 @@ function draw() {
   push();
   fill('red');
   rect(bloco.position.x, bloco.position.y, 35, 35);
-  Pop();
+  pop();
   
   drawSprites();
  
-  console.log(bloco1.position.y);
+  console.log(bloco.position.y);
 
   if(keyDown("space")){
-	Matter.Body.applyForce(bloco, bloco.position, {x:0.2, y:-0.3});
+	Matter.Body.applyForce(bloco, bloco.position, {x:0.055, y:-0.04});
   }
 
 }
